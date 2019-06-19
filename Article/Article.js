@@ -13,11 +13,19 @@ class Article {
   }
 
   expandArticle() {
-    // Using our reference to the domElement, toggle a class to expand or hide the article.
+    //Using our reference to the domElement, toggle a class to expand or hide the article.
     this.domElement.classList.toggle("article-open");
+    this.expandButton.textContent =
+      this.expandButton.textContent === "expand"
+        ? "collapse article"
+        : "expand";
+    if (this.expandButton.textContent === "collapse article") {
+      this.expandButton.style.color = "#rgb(180, 11, 172)";
+    } else {
+      this.expandButton.style.color = "#f1f1";
+    }
   }
 }
-
 /* START HERE: 
 
 - Select all classes named ".article" and assign that value to the articles variable.  
@@ -26,5 +34,5 @@ class Article {
 
 */
 
-let articles = document.querySelectorAll(".artcile");
+let articles = document.querySelectorAll(".article");
 articles.forEach(article => new Article(article));
